@@ -27,8 +27,8 @@ const { Bot } = require("grammy");
 const bot = new Bot(process.env.BOT_TOKEN);
 
 // ADMIN ID va KANAL NOMI (Shu yerlarni o'zingiznikiga o'zgartiring)
-const ADMIN_ID = 123456789; // Telegram ID'ingizni yozing (masalan: @userinfobot dan bilish mumkin)
-const KANAL_USERNAME = "@kanalingiz_username"; // Majburiy obuna kanali username'i (masalan: @mykinolar)
+const ADMIN_ID = 123456789; // Telegram ID'ingizni yozing (masalan: @8731925710 dan bilish mumkin)
+const KANAL_USERNAME = "@vexor_kino"; // Majburiy obuna kanali username'i (masalan: @vexor_kino)
 
 const kinolar = {
   "101": "🎬 **Kino nomi:** Qasoskorlar\n💾 **Sifati:** HD\n🔗 **Ko'rish:** https://t.me/kanalingiz/1",
@@ -38,7 +38,7 @@ const kinolar = {
 // Kanal obunasini tekshirish funksiyasi
 async function checkSub(ctx) {
   try {
-    const member = await ctx.api.getChatMember(KANAL_USERNAME, ctx.from.id);
+    const member = await ctx.api.getChatMember(vexor_kino, ctx.from.id);
     return ["creator", "administrator", "member"].includes(member.status);
   } catch (error) {
     console.error("Obuna tekshirishda xato:", error);
@@ -52,7 +52,7 @@ bot.command("start", async (ctx) => {
 
   if (!isSub) {
     return ctx.reply(
-      `⚠️ Botdan foydalanish uchun rasmiy kanalimizga obuna bo'ling:\n\n👉 ${KANAL_USERNAME}\n\nObuna bo'lgach, qayta /start bosing.`,
+      `⚠️ Botdan foydalanish uchun rasmiy kanalimizga obuna bo'ling:\n\n👉 ${vexor_kino}\n\nObuna bo'lgach, qayta /start bosing.`,
       { disable_web_page_preview: true }
     );
   }
